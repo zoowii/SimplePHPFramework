@@ -9,19 +9,21 @@
 class AjaxResponse
 {
 
-    const SUCCESS = '0';
+    const SUCCESS = '200';
     const DB_ERROR = '301';
     const ACCESS_DENIED = '302';
     const LOGIN_ACQUIRED = '303';
     const ILLEGAL_PARAMS = '400';
     const MISSING_PARAMS = '401';
+    const AUTH_FAILED = '304';
     private static $CODE_MSG = array(
         self::SUCCESS => 'success',
         self::DB_ERROR => 'db error',
         self::ACCESS_DENIED => 'access denied',
         self::LOGIN_ACQUIRED => 'login acquired',
         self::ILLEGAL_PARAMS => 'illegal params',
-        self::MISSING_PARAMS => 'missing params'
+        self::MISSING_PARAMS => 'missing params',
+        self::AUTH_FAILED => 'auth failed'
     );
 
     public static function data($level, $data = null)

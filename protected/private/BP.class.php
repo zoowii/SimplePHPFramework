@@ -8,6 +8,8 @@ class BP
     private $conn = null;
     private $cache = null;
 
+    private $user = null;
+
     private $modules = null;
 
     private $template = null;
@@ -75,5 +77,20 @@ class BP
         }
         return $obj->modules;
     }
+
+    /**
+     * @return WebUser
+     */
+    public static function user()
+    {
+        $obj = self::instance();
+        if(is_null($obj->user)) {
+            $cls = WEB_USER_CLASS;
+            session_start();
+            $obj->user = new $cls();
+        }
+        return $obj->user;
+    }
+
 
 }

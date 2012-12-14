@@ -3,6 +3,37 @@
 class Common
 {
 
+    /**
+     * 从$from中取出$params中键值对应的值
+     * @param array $from
+     * @param array $params
+     */
+    public static function array_vars(array $from, array $params)
+    {
+        $result = array();
+        foreach ($params as $param) {
+            if (isset($from[$param])) {
+                $result[$param] = $from[$param];
+            } else {
+                $result[$param] = null;
+            }
+        }
+        return $result;
+    }
+
+    public static function requireRequests(array $params, $from = false)
+    {
+        if (!is_array($from)) {
+            $from = $_REQUEST;
+        }
+        foreach ($params as $param) {
+            if (!isset($from[$param])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public static function redirect($url)
     {
         header("Location: $url");
@@ -130,16 +161,7 @@ class Common
     {
         foreach ($fields as $field) {
             if (!isset($_REQUEST[$field])) {
-                SimuAjaxResponse::send(SimuAjaxResponse::MISSING_PARAMS);
-            }
-        }
-    }
-
-    public static function requireRequests($fields)
-    {
-        foreach ($fields as $field) {
-            if (!isset($_REQUEST[$field])) {
-                var_dump('Missing param: ' . $field);
+                AjaxResponse::send(AjaxResponse::MISSING_PARAMS);
             }
         }
     }
@@ -183,6 +205,11 @@ class Common
             $random_string .= sha1(rand(1, 100000) . $_SERVER['REQUEST_TIME'] . rand(1, 100000));
         }
         return substr($random_string, 0, $length);
+    }
+
+    public static function encrypt($username, $password, $salt)
+    {
+        return sha1(sha1($username) . sha1($password) . $salt);
     }
 
 }

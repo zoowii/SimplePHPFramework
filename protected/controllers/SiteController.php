@@ -17,8 +17,8 @@ class SiteController extends Controller
 
     public function actionMain()
     {
-        $this->tpl_assign('message', 'Hello');
-        $this->tpl_assign('name', 'Smarty');
+        $this->tpl_assign('isGuest', BP::user()->isGuest());
+        $this->tpl_assign('username', BP::user()->name);
         $this->tpl_render('main.tpl');
     }
 }

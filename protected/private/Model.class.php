@@ -67,7 +67,7 @@ abstract class Model
             return false;
         } else {
             $pk = $this::$pkColumn;
-            $obj = self::findByPk(get_class($this), $this->$pk);
+            $obj = self::findByPk($this->$pk);
             foreach ($this::$columnTypes as $column => $value) {
                 $this->$column = $obj->$column;
             }
@@ -414,7 +414,7 @@ abstract class Model
             $res[$column] = $this->$column;
         }
         foreach ($this->data as $column => $value) {
-            if (instance_of($value, self)) {
+            if ($value instanceof self) {
                 $res[$column] = $value->toArray();
             } else {
                 $res[$column] = $value;
