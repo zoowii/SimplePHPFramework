@@ -12,13 +12,13 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        $this->redirect2('site', 'tmpl1');
+        $this->redirect2('site', 'main');
     }
 
-    public function actionTmpl1()
+    public function actionMain()
     {
         $this->tpl_assign('message', 'Hello');
         $this->tpl_assign('name', 'Smarty');
-        $this->tpl_render('tmpl1.tpl');
+        $this->tpl_render('main.tpl');
     }
 }

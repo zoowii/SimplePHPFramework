@@ -14,6 +14,11 @@ class Common
         return route($c, $a, $m);
     }
 
+    public static function urlPath()
+    {
+        return join('/', func_get_args());
+    }
+
     public static function path()
     {
         return join(DIRECTORY_SEPARATOR, func_get_args());

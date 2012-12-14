@@ -1,12 +1,12 @@
 <?php /* Smarty version Smarty-3.1.11, created on 2012-12-12 12:08:24
-         compiled from "D:\xampp\htdocs\zblog\protected\templates\tmpl1.tpl" */ ?>
+         compiled from "D:\xampp\htdocs\zblog\protected\templates\main.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:169950c8605e9fbf75-47910444%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '6b0bacae143fac3c2aa7056e24ae6e74c9ec9326' => 
     array (
-      0 => 'D:\\xampp\\htdocs\\zblog\\protected\\templates\\tmpl1.tpl',
+      0 => 'D:\\xampp\\htdocs\\zblog\\protected\\templates\\main.tpl',
       1 => 1355310502,
       2 => 'file',
     ),

@@ -28,5 +28,29 @@ class Html
 	{
 		return APPLICATION_NAME;
 	}
+
+    public static function asset($filename, $type = false, $m = false, $genHtml = true)
+    {
+        if(!$type) {
+            $dotPos = strrpos($filename, '.');
+            $type = substr($filename, $dotPos + 1, strlen($filename) - $dotPos - 1);
+        }
+        if($m) {
+            // is in module
+            $filepath = Common::urlPath(APPLICATION_NAME, 'protected', 'modules', $m, 'assets', $type, $filename);
+        } else {
+            // is in global
+            $filepath = Common::urlPath(APPLICATION_NAME, 'protected', 'assets', $type, $filename);
+        }
+        if($genHtml) {
+            if($type === 'js') {
+                return "<script type='text/javascript' src='$filepath'></script>";
+            } else {
+                return "<link type='text/$type' rel='stylesheet' href='$filepath'>";
+            }
+        } else {
+            return $filepath;
+        }
+    }
 	
 }
