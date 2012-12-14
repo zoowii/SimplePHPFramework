@@ -15,6 +15,7 @@ define('TABLE_PREFIX', 'z_');
 
 define('DB_ADAPTER', 'mysql');
 define('DB_HOST', 'localhost');
+define('DB_PORT', 3306);
 define('DB_NAME', 'zblog');
 define('DB_USER', 'root');
 define('DB_PASS', '123456');

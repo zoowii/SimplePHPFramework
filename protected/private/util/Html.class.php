@@ -21,6 +21,12 @@ class Html
      */
     public static function url_for($c, $a = 'index', $m = false)
     {
-        return '/' . APPLICATION_NAME . "/?c=$c&a=$a" . ($m !== false ? "&m=$m" : '');
+        return APPLICATION_NAME . "/?c=$c&a=$a" . ($m !== false ? "&m=$m" : '');
     }
+	
+	public static function root_url()
+	{
+		return APPLICATION_NAME;
+	}
+	
 }

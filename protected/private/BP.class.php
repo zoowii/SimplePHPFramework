@@ -5,26 +5,12 @@ class BP
 
     private static $instance = null;
 
-    private $conn;
+    private $conn = null;
     private $cache = null;
 
     private $modules = null;
 
     private $template = null;
-
-    public function __construct()
-    {
-        // init db conn
-        $dsn = DB_ADAPTER . ':host=' . DB_HOST . ';dbname=' . DB_NAME;
-        $this->conn = new PDO($dsn, DB_USER, DB_PASS, array(PDO::ATTR_PERSISTENT => true));
-        $this->conn->exec('set names ' . DB_CHARSET);
-
-        // init cache
-        $this->cache = new BPCache();
-
-        // init Template
-        $this->template = new Template();
-    }
 
     /**
      * @return BP
@@ -44,7 +30,11 @@ class BP
 
     public static function tmpl()
     {
-        return self::instance()->template;
+		$_this = self::instance();
+		if(is_null($_this->template)) {
+			$_this->template = new Template();
+		}
+        return $_this->template;
     }
 
     /**
@@ -52,7 +42,14 @@ class BP
      */
     public static function db()
     {
-        return self::instance()->conn;
+		$_this = self::instance();
+		if(is_null($_this->conn)) {
+			// init db conn
+			$dsn = DB_ADAPTER . ':host=' . DB_HOST . ':' . DB_PORT . ';dbname=' . DB_NAME;
+			$_this->conn = new PDO($dsn, DB_USER, DB_PASS, array(PDO::ATTR_PERSISTENT => true));
+			$_this->conn->exec('set names ' . DB_CHARSET);
+		}
+        return $_this->conn;
     }
 
     /**
@@ -60,7 +57,12 @@ class BP
      */
     public static function cache()
     {
-        return self::instance()->cache;
+		$_this = self::instance();
+		if(is_null($_this->cache)) {
+			// init cache
+			$_this->cache = new BPCache();
+		}
+        return $_this->cache;
     }
 
     public static function modules($modules = null)
