@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2012-12-14 08:03:47
-         compiled from "E:\xampp\htdocs\zblog\protected\lib\Smarty\debug.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:3089750cacf534a8e84-93046237%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty-3.1.11, created on 2012-12-15 23:09:04
+         compiled from "/var/www/zblog/protected/lib/Smarty/debug.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:123835310350cc9290d969b6-22903628%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    '853b6e8bbe34653ea5101f5c40b490396e898a28' => 
+    '04f7ce12c963cf789aa32c5d6f25953ea4b00ed9' => 
     array (
-      0 => 'E:\\xampp\\htdocs\\zblog\\protected\\lib\\Smarty\\debug.tpl',
-      1 => 1355468163,
+      0 => '/var/www/zblog/protected/lib/Smarty/debug.tpl',
+      1 => 1355583717,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '3089750cacf534a8e84-93046237',
+  'nocache_hash' => '123835310350cc9290d969b6-22903628',
   'function' => 
   array (
   ),
@@ -29,9 +29,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.11',
-  'unifunc' => 'content_50cacf53555b74_02370550',
+  'unifunc' => 'content_50cc9290e26d31_99322454',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_50cacf53555b74_02370550')) {function content_50cacf53555b74_02370550($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_debug_print_var')) include 'E:\\xampp\\htdocs\\zblog\\protected\\lib\\Smarty\\plugins\\modifier.debug_print_var.php';
+<?php if ($_valid && !is_callable('content_50cc9290e26d31_99322454')) {function content_50cc9290e26d31_99322454($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_debug_print_var')) include '/var/www/zblog/protected/lib/Smarty/plugins/modifier.debug_print_var.php';
 ?><?php $_smarty_tpl->_capture_stack[0][] = array('_smarty_debug', 'debug_output', null); ob_start(); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">

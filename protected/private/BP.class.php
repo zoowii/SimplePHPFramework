@@ -32,10 +32,10 @@ class BP
 
     public static function tmpl()
     {
-		$_this = self::instance();
-		if(is_null($_this->template)) {
-			$_this->template = new Template();
-		}
+        $_this = self::instance();
+        if (is_null($_this->template)) {
+            $_this->template = new Template();
+        }
         return $_this->template;
     }
 
@@ -44,13 +44,18 @@ class BP
      */
     public static function db()
     {
-		$_this = self::instance();
-		if(is_null($_this->conn)) {
-			// init db conn
-			$dsn = DB_ADAPTER . ':host=' . DB_HOST . ':' . DB_PORT . ';dbname=' . DB_NAME;
-			$_this->conn = new PDO($dsn, DB_USER, DB_PASS, array(PDO::ATTR_PERSISTENT => true));
-			$_this->conn->exec('set names ' . DB_CHARSET);
-		}
+        $_this = self::instance();
+        if (is_null($_this->conn)) {
+            // init db conn
+            $dsn = DB_ADAPTER . ':host=' . DB_HOST . ';dbname=' . DB_NAME;
+            try {
+                $_this->conn = new PDO($dsn, DB_USER, DB_PASS, array(PDO::ATTR_PERSISTENT => true));
+            } catch (Exception $e) {
+                var_dump($e);
+                exit;
+            }
+            $_this->conn->exec('set names ' . DB_CHARSET);
+        }
         return $_this->conn;
     }
 
@@ -59,11 +64,11 @@ class BP
      */
     public static function cache()
     {
-		$_this = self::instance();
-		if(is_null($_this->cache)) {
-			// init cache
-			$_this->cache = new BPCache();
-		}
+        $_this = self::instance();
+        if (is_null($_this->cache)) {
+            // init cache
+            $_this->cache = new BPCache();
+        }
         return $_this->cache;
     }
 
@@ -84,7 +89,7 @@ class BP
     public static function user()
     {
         $obj = self::instance();
-        if(is_null($obj->user)) {
+        if (is_null($obj->user)) {
             $cls = WEB_USER_CLASS;
             session_start();
             $obj->user = new $cls();

@@ -1,31 +1,31 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2012-12-14 18:26:17
-         compiled from "D:\xampp\htdocs\zblog\protected\templates\main.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:2138650cb3c095e5416-01875515%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty-3.1.11, created on 2012-12-15 23:09:04
+         compiled from "/var/www/zblog/protected/templates/main.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:200133305750cc9290c5cfb6-54953359%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    '2aaa2e69ea6e38214edfdc57d3e0d19fd6361d66' => 
+    'b02b99350d58d74f72cd9235c519e9eb77073ff8' => 
     array (
-      0 => 'D:\\xampp\\htdocs\\zblog\\protected\\templates\\main.tpl',
-      1 => 1355505971,
+      0 => '/var/www/zblog/protected/templates/main.tpl',
+      1 => 1355583717,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2138650cb3c095e5416-01875515',
+  'nocache_hash' => '200133305750cc9290c5cfb6-54953359',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.11',
-  'unifunc' => 'content_50cb3c0975e952_52191275',
   'variables' => 
   array (
     'isGuest' => 0,
     'username' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.11',
+  'unifunc' => 'content_50cc9290d70663_71195348',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_50cb3c0975e952_52191275')) {function content_50cb3c0975e952_52191275($_smarty_tpl) {?><?php if (!is_callable('smarty_function_asset')) include 'D:\\xampp\\htdocs\\zblog\\protected\\lib\\Smarty\\plugins\\function.asset.php';
-if (!is_callable('smarty_function_url_for')) include 'D:\\xampp\\htdocs\\zblog\\protected\\lib\\Smarty\\plugins\\function.url_for.php';
+<?php if ($_valid && !is_callable('content_50cc9290d70663_71195348')) {function content_50cc9290d70663_71195348($_smarty_tpl) {?><?php if (!is_callable('smarty_function_asset')) include '/var/www/zblog/protected/lib/Smarty/plugins/function.asset.php';
+if (!is_callable('smarty_function_url_for')) include '/var/www/zblog/protected/lib/Smarty/plugins/function.url_for.php';
 ?><?php echo smarty_function_asset(array('file'=>'site/config.js'),$_smarty_tpl);?>
 
 <?php echo smarty_function_asset(array('file'=>'site/main.js','type'=>'js'),$_smarty_tpl);?>
