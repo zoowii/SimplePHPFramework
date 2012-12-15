@@ -38,14 +38,26 @@ function load_plugins()
 function load_controller($controller, $module = false)
 {
     $dir = $module === false ? Common::path(APPLICATION, 'controllers') : Common::path(APPLICATION, 'modules', $module, 'controllers');
-    $controller_name = ucfirst($controller) . 'Controller';
+    $tmp1 = ucfirst($controller);
+    $controller_name = $tmp1 . 'Controller';
+    $service_name = $tmp1 . 'Service';
     $path = Common::path($dir, $controller_name . '.php');
+
+
     if (is_file($path)) {
         if (!class_exists($controller_name)) {
             include $path;
         }
         $c = new $controller_name($module);
         if ($c instanceof Controller) {
+            $service_path = Common::path(dirname($dir), 'services', $service_name . '.php');
+            if (is_file($service_path)) {
+                if (!class_exists($service_name)) {
+                    include $service_path;
+                }
+                $s = new $service_name();
+                $c->service = $s;
+            }
             return $c;
         } else {
             return false;

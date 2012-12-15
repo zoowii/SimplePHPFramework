@@ -12,6 +12,8 @@ class Controller
     protected $module;
     protected $layout;
 
+    public $service;
+
     public function  __construct($module = false)
     {
         $this->module = $module;
