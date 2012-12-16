@@ -10,31 +10,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 {asset file='bootstrap-responsive.min.css' type='css'}
 {asset file='bootstrap.min.js' type='js'}
-</head>
-<body>
+{asset file='markdown.js' type='js'}
 {asset file='site/config.js'}
 {asset file='site/main.js' type='js'}
 {asset file='site/styles.css' type='css'}
+</head>
+<body>
 <div class='container'>
-{*<div class="navbar">*}
-{*<div class="navbar-inner">*}
-{*<a class="brand website-link" href="#">Title</a>*}
-{*<ul class='nav'>*}
-{*<li class='active'>*}
-{*<a href='#'>Home</a>*}
-{*</li>*}
-{*<li><a href='#' class="blog-link">Blog</a></li>*}
-{*<li><a href='#' class="aboutme-link">About me</a></li>*}
-{*</ul>*}
-{*<form class="navbar-search pull-right">*}
-{*<input type="text" class="search-query" placeholder="Search">*}
-{*</form>*}
-{*</div>*}
-{*</div>*}
     <div class="page-header">
-        <h1>我大逆不道
-            <small>Site of Zoowii</small>
-        </h1>
+        <a href="{root_url}" class="header-link">
+            <h1>我大逆不道
+                <small>Site of Zoowii</small>
+            </h1>
+        </a>
+
         <div class="pull-right">
         {if $isGuest}
             <a href="{url_for m='user' c='auth' a='login'}">登陆</a>
@@ -54,10 +43,9 @@
             <li><a href="{root_url}">Home</a> <span class="divider">/</span></li>
             <li class="active">{$module}</li>
         {/if}
-        {*<li><a href="#">Library</a> <span class="divider">/</span></li>*}
-        {*<li class="active">Data</li>*}
         </ul>
     {$content}
+    {if isset($comments)}
         <div class="comments">
             <div id="disqus_thread"></div>
             <script type="text/javascript">
@@ -79,6 +67,7 @@
                     class="logo-disqus">Disqus</span></a>
 
         </div>
+    {/if}
     </div>
 </div>
 </body>

@@ -37,7 +37,7 @@ class AjaxResponse
         $ret['code'] = $level;
         $ret['message'] = self::$CODE_MSG[$level];
         if (!is_null($data)) {
-            $ret['data'] = json_encode($data);
+            $ret['data'] = $data;
         }
         return json_encode($ret);
     }

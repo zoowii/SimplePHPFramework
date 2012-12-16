@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2012-12-16 00:45:54
+<?php /* Smarty version Smarty-3.1.11, created on 2012-12-16 14:09:30
          compiled from "/var/www/zblog/protected/layouts/website.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:42187775350cc9290d74484-33909820%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '5737848754a9e3e5f353247136d41b26c95c6b40' => 
     array (
       0 => '/var/www/zblog/protected/layouts/website.tpl',
-      1 => 1355589951,
+      1 => 1355638133,
       2 => 'file',
     ),
   ),
@@ -24,12 +24,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'username' => 0,
     'module' => 0,
     'content' => 0,
+    'comments' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_50cc9290d936a7_94513107')) {function content_50cc9290d936a7_94513107($_smarty_tpl) {?><?php if (!is_callable('smarty_function_asset')) include '/var/www/zblog/protected/lib/Smarty/plugins/function.asset.php';
-if (!is_callable('smarty_function_url_for')) include '/var/www/zblog/protected/lib/Smarty/plugins/function.url_for.php';
 if (!is_callable('smarty_function_root_url')) include '/var/www/zblog/protected/lib/Smarty/plugins/function.root_url.php';
+if (!is_callable('smarty_function_url_for')) include '/var/www/zblog/protected/lib/Smarty/plugins/function.url_for.php';
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -49,34 +50,25 @@ if (!is_callable('smarty_function_root_url')) include '/var/www/zblog/protected/
 
 <?php echo smarty_function_asset(array('file'=>'bootstrap.min.js','type'=>'js'),$_smarty_tpl);?>
 
-</head>
-<body>
+<?php echo smarty_function_asset(array('file'=>'markdown.js','type'=>'js'),$_smarty_tpl);?>
+
 <?php echo smarty_function_asset(array('file'=>'site/config.js'),$_smarty_tpl);?>
 
 <?php echo smarty_function_asset(array('file'=>'site/main.js','type'=>'js'),$_smarty_tpl);?>
 
 <?php echo smarty_function_asset(array('file'=>'site/styles.css','type'=>'css'),$_smarty_tpl);?>
 
+</head>
+<body>
 <div class='container'>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <div class="page-header">
-        <h1>我大逆不道
-            <small>Site of Zoowii</small>
-        </h1>
+        <a href="<?php echo smarty_function_root_url(array(),$_smarty_tpl);?>
+" class="header-link">
+            <h1>我大逆不道
+                <small>Site of Zoowii</small>
+            </h1>
+        </a>
+
         <div class="pull-right">
         <?php if ($_smarty_tpl->tpl_vars['isGuest']->value){?>
             <a href="<?php echo smarty_function_url_for(array('m'=>'user','c'=>'auth','a'=>'login'),$_smarty_tpl);?>
@@ -101,11 +93,10 @@ if (!is_callable('smarty_function_root_url')) include '/var/www/zblog/protected/
             <li class="active"><?php echo $_smarty_tpl->tpl_vars['module']->value;?>
 </li>
         <?php }?>
-        
-        
         </ul>
     <?php echo $_smarty_tpl->tpl_vars['content']->value;?>
 
+    <?php if (isset($_smarty_tpl->tpl_vars['comments']->value)){?>
         <div class="comments">
             <div id="disqus_thread"></div>
             <script type="text/javascript">
@@ -127,6 +118,7 @@ if (!is_callable('smarty_function_root_url')) include '/var/www/zblog/protected/
                     class="logo-disqus">Disqus</span></a>
 
         </div>
+    <?php }?>
     </div>
 </div>
 </body>

@@ -1,0 +1,20 @@
+#blog-content-area {
+    position: relative;
+    overflow: hidden;
+    clear: both;
+}
+
+#blog-content-input {
+    position: relative;
+    float: left;
+    left: 0;
+    top: 0;
+    width: 480px;
+}
+
+#preview {
+    position: absolute;
+    left: 500px;
+    width: 480px;
+    top: 0s;
+}

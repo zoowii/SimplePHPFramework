@@ -10,7 +10,7 @@ class Blog extends Model
 {
     protected static $tableName = 'blog';
     protected static $pkColumn = 'id';
-    protected static $content_type = 'html';
+    protected static $content_type = 'markdown';
     protected static $columnTypes = array(
         'id' => 'int',
         'title' => 'title',
@@ -22,4 +22,18 @@ class Blog extends Model
     protected static $readOnlyColumns = array(
         'id', 'create_time'
     );
+    protected static $relations = array(
+        'author' => array('author_id', 'User', 'id')
+    );
+
+    public function getLabels()
+    {
+        $blog_labels = BlogLabel::findAllByAttributes(array('blog_id' => $this->id));
+        $labels = array();
+        foreach ($blog_labels as $blog_label) {
+            $labels[] = Label::findByPk($blog_label->label_id);
+        }
+        return $labels;
+    }
+
 }

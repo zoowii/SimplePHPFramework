@@ -28,10 +28,22 @@ abstract class Model
         if (in_array($name, array_keys($class::$relations))) {
             $value = $this->data[$name];
             if (!$value) {
-                $columnName = $class::$relations[$name]['column'];
+                if (isset($class::$relations[$name]['column'])) {
+                    $columnName = $class::$relations[$name]['column'];
+                } else {
+                    $columnName = $class::$relations[$name][0];
+                }
                 $key_value = $this->$columnName;
-                $joinClass = $class::$relations[$name]['model'];
-                $joinKey = $class::$relations[$name]['key'];
+                if (isset($class::$relations[$name]['model'])) {
+                    $joinClass = $class::$relations[$name]['model'];
+                } else {
+                    $joinClass = $class::$relations[$name][1];
+                }
+                if (isset($class::$relations[$name]['key'])) {
+                    $joinKey = $class::$relations[$name]['key'];
+                } else {
+                    $joinKey = $class::$relations[$name][2];
+                }
                 $model = $joinClass::findOneByAttributes(array($joinKey => $key_value));
                 $this->data[$name] = $model;
                 return $model;
