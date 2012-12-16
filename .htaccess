@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteRule index.html index.php
+RewriteRule ^(\w+)/(\w+)/(\w+)$ index.php?m=$1&c=$2&a=$3

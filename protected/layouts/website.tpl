@@ -18,19 +18,25 @@
 <body>
 <div class='container'>
     <div class="page-header">
-        <a href="{root_url}" class="header-link">
+        <a href="{root_url}/" class="header-link">
             <h1>我大逆不道
                 <small>Site of Zoowii</small>
             </h1>
         </a>
 
+        <div class="pull-left">
+            <ul class="nav nav-pills">
+                <li><a href="{root_url}/">Home</a></li>
+                <li><a href="{url_for m='blog'}">Blog</a></li>
+            </ul>
+        </div>
         <div class="pull-right">
-        {if $isGuest}
+        {if BP::user()->isGuest()}
             <a href="{url_for m='user' c='auth' a='login'}">登陆</a>
             /
             <a href="{url_for m='user' c='auth' a='register'}">注册</a>
             {else}
-            <span class="label label-info">{$username}</span>
+            <span class="label label-info">{BP::user()->name}</span>
         {/if}
         </div>
     </div>

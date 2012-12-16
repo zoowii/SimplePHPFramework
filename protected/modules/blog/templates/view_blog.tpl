@@ -4,11 +4,11 @@
     var blog_author = "{$blog->author->username}";
     var blog_create_time = "{$blog->create_time}";
     var blog_labels = [
-    {foreach $blog->labels as $key=>$label}
+    {foreach $blog->getLabelNames() as $key=>$label}
         {if $key > 0}
             ,
         {/if}
-        "{$label->name}"
+        "{$label}"
     {/foreach}
     ];
 </script>
@@ -21,6 +21,9 @@
 </div>
 
 <pre>
+    <div class="blog-preview-labels">
+
+    </div>
     <div id="preview">
     </div>
 </pre>

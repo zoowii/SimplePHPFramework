@@ -36,4 +36,11 @@ class Blog extends Model
         return $labels;
     }
 
+    public function getLabelNames()
+    {
+        return array_map(function ($label) {
+            return $label->name;
+        }, $this->getLabels());
+    }
+
 }

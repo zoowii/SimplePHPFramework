@@ -20,16 +20,17 @@ class BlogController extends Controller
     public function actionView()
     {
         if (!Common::requireRequests(array('id'), $_GET)) {
-            $blogs = Blog::findAll(''); // TODO: pagination, sort
+            $blogs = Blog::findAll('', 'create_time desc'); // TODO: pagination, sort
             $this->tpl_assign('blogs', $blogs);
             $this->tpl_assign('title', 'Blog List');
+            $this->tpl_assign('comments', true);
             return $this->tpl_fetch('blog_list.tpl');
         }
         $blog = Blog::findByPk($_GET['id']);
         $this->tpl_assign('blog', $blog);
         $this->tpl_assign('title', 'Blog -- ' . $blog->title);
         $this->tpl_assign('comments', true);
-        $this->tpl_render('view_blog.tpl');
+        return $this->tpl_fetch('view_blog.tpl');
     }
 
     public function actionCreate()

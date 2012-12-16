@@ -1,0 +1,41 @@
+.blog-link-title {
+    color: #333333;
+    font-size: 14px;
+}
+
+.blog-link-time {
+    color: #999999;
+    font-size: 12px;
+    float: right;
+}
+
+.blog-list-left-area {
+    width: 280px;
+    padding: 8px 0;
+    float: left;
+    position: relative;
+}
+
+.blog-list-area {
+    position: relative;
+    width: 900px;
+    min-height: 300px;
+}
+
+.blog-list-right-area {
+    position: relative;
+    left: 300px;
+    top: 0;
+    width: 600px;
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.clearbox:after {
+    clear: both;
+    content: '';
+}
+
+.blog-label {
+    min-width: 35px;
+}

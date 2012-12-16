@@ -26,8 +26,7 @@ abstract class Model
     {
         $class = get_called_class();
         if (in_array($name, array_keys($class::$relations))) {
-            $value = $this->data[$name];
-            if (!$value) {
+            if (!isset($this->data[$name])) {
                 if (isset($class::$relations[$name]['column'])) {
                     $columnName = $class::$relations[$name]['column'];
                 } else {
@@ -48,7 +47,7 @@ abstract class Model
                 $this->data[$name] = $model;
                 return $model;
             } else {
-                return $value;
+                return $this->data[$name];
             }
         } else {
             return $this->data[$name];

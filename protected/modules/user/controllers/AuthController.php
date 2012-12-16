@@ -23,7 +23,11 @@ class AuthController extends Controller
             $user->password = Common::encrypt($username, $password, $user->salt);
             if ($user->save()) {
                 $user->refresh();
-                AjaxResponse::send(AjaxResponse::SUCCESS, $user->toArray());
+                if (isset($_REQUEST['ajax'])) {
+                    AjaxResponse::send(AjaxResponse::SUCCESS, $user->toArray());
+                } else {
+                    Common::redirect($_SERVER['HTTP_REFERER']);
+                }
             } else {
                 AjaxResponse::send(AjaxResponse::DB_ERROR);
             }
