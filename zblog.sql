@@ -85,5 +85,5 @@ CREATE TABLE `z_user` (
 -- ----------------------------
 -- Records of z_user
 -- ----------------------------
-INSERT INTO `z_user` VALUES ('1', 'zoowii', '1992zhouwei@gmail.com', '0e68226d6908d7949ead597d2cc80229b7d6eec966420bf3d3', '1353658c828b265f6514b610332ec219af945fb9', '2012-12-15 00:09:52', 'owner');
+INSERT INTO `z_user` VALUES ('1', 'zoowii', null, '0e68226d6908d7949ead597d2cc80229b7d6eec966420bf3d3', '1353658c828b265f6514b610332ec219af945fb9', '2012-12-15 00:09:52', 'owner');
 INSERT INTO `z_user` VALUES ('2', 'test2', '1fjifej@jfie.com', 'cbaac5d9ee5a79930139259ca44f6ed2779cfb35640ed8ea7b', 'a89f2f12a6d0ccbfe827c8bb818b56de8bc8ba90', '2012-12-15 01:18:11', 'visitor');
